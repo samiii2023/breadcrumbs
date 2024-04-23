@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+function MyComponent() {
+  const paths = [
+    { name: 'Home', path: '/' },
+    { name: 'List', path: '/list' },
+    { name: 'App', path: '/app' },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {paths.map((item, index) => (
+        <span key={index}>
+          <a href={item.path}>{item.name}</a>
+          {index !== paths.length - 1 && " / "}
+        </span>
+      ))}
     </div>
   );
 }
 
-export default App;
+export default MyComponent;
